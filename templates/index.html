@@ -4,25 +4,27 @@
 <div>
     <div class="text-center mb-12">
         <span class="inline-flex items-center gap-x-2 bg-emerald-100 text-emerald-700 text-sm font-medium px-6 py-2 rounded-3xl">
-            🚀 YOLOv8 • Real-time Detection
+            YOLOv8 • Real-time Detection
         </span>
         <h1 class="text-5xl md:text-6xl font-semibold text-slate-800 mt-6 leading-none" style="font-family: 'Space Grotesk', sans-serif;">
-            Deteksi Penyakit<br>Daun Padi Instan
+            Deteksi Penyakit<br>Daun Jagung
         </h1>
-        <p class="mt-6 text-xl text-slate-600 max-w-2xl mx-auto">Unggah foto daun padi Anda, YOLOv8 akan mendeteksi penyakit dan memberikan solusi dalam hitungan detik.</p>
+        <p class="mt-6 text-xl text-slate-600 max-w-2xl mx-auto">Unggah foto daun jagung Anda, YOLOv8 akan mendeteksi penyakit dan memberikan solusi dalam hitungan detik.</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-10 lg:gap-12">
         <!-- Kolom Kiri: Input Gambar -->
         <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-100">
-            <h3 class="font-semibold text-xl mb-4 flex items-center gap-x-2">📸 Unggah Gambar Daun Padi</h3>
+            <!-- <h3 class="font-semibold text-xl mb-4 flex items-center gap-x-2">📸 Unggah Gambar Daun Padi</h3> -->
             
             <div id="uploadZone" 
                  onclick="document.getElementById('fileInput').click()"
                  class="upload-zone border-2 border-dashed border-slate-300 rounded-3xl h-80 flex flex-col items-center justify-center cursor-pointer hover:border-emerald-300">
                 
                 <div id="previewContainer">
-                    <div class="text-6xl mb-6">🌾</div>
+                    <div class="text-6xl mb-6">
+                        <i class="ri-image-upload-line"></i>
+                    </div>
                     <p class="font-medium text-slate-700">Tarik & lepas gambar di sini</p>
                     <p class="text-slate-400 text-sm mt-1">atau klik untuk memilih file</p>
                     <p class="text-xs text-slate-400 mt-8">JPG, PNG • Maksimal 5MB</p>
@@ -33,14 +35,16 @@
 
             <button onclick="simulateDetection()" 
                     class="mt-8 w-full py-5 bg-emerald-600 hover:bg-emerald-700 text-white text-lg font-semibold rounded-3xl flex items-center justify-center gap-x-3 shadow-lg">
-                🔍 Mulai Deteksi dengan YOLOv8
+                <i class="ri-search-line"></i>Deteksi
             </button>
         </div>
 
         <!-- Kolom Kanan: Hasil Deteksi -->
         <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-100" id="resultArea">
             <div class="flex flex-col items-center justify-center h-full py-16 text-center">
-                <div class="text-8xl mb-8 opacity-20">📊</div>
+                <div class="text-8xl mb-8 opacity-20">
+                    <i class="ri-bar-chart-grouped-line"></i>
+                </div>
                 <h3 class="text-2xl font-medium text-slate-400">Hasil deteksi akan muncul di sini</h3>
                 <p class="text-slate-400 mt-3 max-w-xs">Setelah gambar diunggah dan tombol deteksi ditekan.</p>
             </div>
