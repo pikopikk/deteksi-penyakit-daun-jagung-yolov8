@@ -260,3 +260,65 @@ function renderBeranda() {
 document.addEventListener('DOMContentLoaded', () => {
     console.log('%c✅ PadiGuard JS dengan preview & loading animation berhasil dimuat!', 'color:#10b981; font-weight:600');
 });
+
+function detectReal() {
+    const fileInput = document.querySelector('input[type="file"]');
+
+    if (!fileInput.files[0]) {
+        alert("Upload gambar dulu!");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", fileInput.files[0]);
+
+    fetch("/predict", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+
+        const resultArea = document.getElementById("resultArea");
+
+        let detectionsHTML = "";
+
+        if (data.detections.length === 0) {
+            detectionsHTML = `<p class="text-red-500">Tidak ada objek terdeteksi</p>`;
+        } else {
+            data.detections.forEach(d => {
+                detectionsHTML += `
+                    <div class="flex justify-between border-b py-2">
+                        <span class="font-medium text-slate-700">${d.class}</span>
+                        <span class="text-emerald-600">${(d.confidence * 100).toFixed(1)}%</span>
+                    </div>
+                `;
+            });
+        }
+
+        resultArea.innerHTML = `
+            <div class="fade-in">
+                
+                <!-- Gambar hasil -->
+                <img src="${data.image}" 
+                     class="rounded-2xl shadow-md w-full mb-6">
+
+                <!-- Judul -->
+                <h3 class="text-xl font-semibold mb-4 text-slate-800">
+                    Hasil Deteksi
+                </h3>
+
+                <!-- List hasil -->
+                <div class="bg-slate-50 rounded-xl p-4 space-y-2">
+                    ${detectionsHTML}
+                </div>
+
+            </div>
+        `;
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Terjadi error saat deteksi");
+    });
+}                                               
