@@ -211,8 +211,8 @@ function downloadPDF() {
 
 function fakeSocialClick(platform) {
     const msg = {
-        email: "Ingin Membuka Email jagungsehat_id@gmail.com?",
-        location: "Ingin Membuka Lokasi Tersebut?"
+        Instagram: "📸 Membuka Instagram PadiGuard (Demo)",
+        WhatsApp: "💬 Membuka WhatsApp +62 812-3456-7890 (Demo)"
     };
     alert(msg[platform] || "Membuka " + platform + " (Demo)");
 }
