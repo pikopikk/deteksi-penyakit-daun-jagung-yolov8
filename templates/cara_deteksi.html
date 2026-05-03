@@ -1,46 +1,62 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="max-w-5xl mx-auto">
+<div class="max-w-5xl mx-auto pt-16">
     <div class="text-center mb-12">
-        <h1 class="text-5xl font-semibold" style="font-family: 'Space Grotesk', sans-serif;">Cara Deteksi Penyakit Daun Padi</h1>
+        <h1 class="text-5xl font-semibold" style="font-family: 'Space Grotesk', sans-serif;">Cara Deteksi Penyakit Daun Jagung</h1>
         <p class="mt-4 text-xl text-slate-600">Hanya 4 langkah sederhana untuk mendapatkan hasil deteksi akurat</p>
     </div>
     
     <div class="grid md:grid-cols-4 gap-6">
         <div class="bg-white rounded-3xl p-8 shadow-xl text-center">
-            <div class="text-6xl mx-auto mb-6">📸</div>
+            <div class="text-6xl mx-auto mb-6">
+                <i class="ri-camera-line"></i>
+            </div>
             <div class="text-emerald-600 font-mono text-5xl font-bold mb-3">01</div>
             <h3 class="font-semibold text-xl">Ambil Foto</h3>
-            <p class="text-slate-600 mt-3">Foto daun padi yang jelas, fokus pada bagian yang mencurigakan dengan cahaya yang baik.</p>
+            <p class="text-slate-600 mt-3">Foto daun jagung yang jelas, fokus pada bagian yang mencurigakan dengan cahaya yang baik.</p>
         </div>
         <div class="bg-white rounded-3xl p-8 shadow-xl text-center">
-            <div class="text-6xl mx-auto mb-6">⬆️</div>
+            <div class="text-6xl mx-auto mb-6">
+                <i class="ri-image-upload-line"></i>
+            </div>
             <div class="text-emerald-600 font-mono text-5xl font-bold mb-3">02</div>
             <h3 class="font-semibold text-xl">Unggah Gambar</h3>
             <p class="text-slate-600 mt-3">Drag & drop atau pilih file dari galeri ponsel atau komputer.</p>
         </div>
         <div class="bg-white rounded-3xl p-8 shadow-xl text-center">
-            <div class="text-6xl mx-auto mb-6">🔥</div>
+            <div class="text-6xl mx-auto mb-6">
+                <i class="ri-search-line"></i>
+            </div>
             <div class="text-emerald-600 font-mono text-5xl font-bold mb-3">03</div>
             <h3 class="font-semibold text-xl">Klik Deteksi</h3>
             <p class="text-slate-600 mt-3">Model YOLOv8 akan memproses gambar secara otomatis.</p>
         </div>
         <div class="bg-white rounded-3xl p-8 shadow-xl text-center">
-            <div class="text-6xl mx-auto mb-6">📋</div>
+            <div class="text-6xl mx-auto mb-6">
+                <i class="ri-bar-chart-grouped-line"></i>
+            </div>
             <div class="text-emerald-600 font-mono text-5xl font-bold mb-3">04</div>
             <h3 class="font-semibold text-xl">Lihat Hasil</h3>
-            <p class="text-slate-600 mt-3">Dapatkan nama penyakit, tingkat keyakinan, dan rekomendasi solusi.</p>
+            <p class="text-slate-600 mt-3">Dapatkan nama penyakit dan tingkat keyakinan.</p>
         </div>
     </div>
 
     <div class="mt-16 bg-emerald-50 border border-emerald-200 rounded-3xl p-10">
         <h3 class="text-center text-2xl font-medium mb-8">Tips agar Hasil Lebih Akurat</h3>
         <div class="grid md:grid-cols-2 gap-6 text-sm">
-            <div class="flex gap-4"><span class="text-xl">✅</span> Ambil foto dari jarak 15–30 cm</div>
-            <div class="flex gap-4"><span class="text-xl">✅</span> Hindari bayangan dan gambar buram</div>
-            <div class="flex gap-4"><span class="text-xl">✅</span> Gunakan cahaya siang hari</div>
-            <div class="flex gap-4"><span class="text-xl">✅</span> Bisa mendeteksi hingga 3 penyakit sekaligus</div>
+            <div class="flex gap-4"><span class="text-xl">
+                <i class="ri-check-line"></i>
+            </span> Ambil foto dari jarak 15–30 cm</div>
+            <div class="flex gap-4"><span class="text-xl">
+                <i class="ri-check-line"></i>
+            </span> Hindari bayangan dan gambar buram</div>
+            <div class="flex gap-4"><span class="text-xl">
+                <i class="ri-check-line"></i>
+            </span> Gunakan cahaya siang hari</div>
+            <div class="flex gap-4"><span class="text-xl">
+                <i class="ri-check-line"></i>
+            </span> Gunakan kamera yang berkualitas baik.</div>
         </div>
     </div>
 </div>

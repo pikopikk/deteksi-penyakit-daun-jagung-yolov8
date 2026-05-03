@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="max-w-4xl mx-auto">
+<div class="max-w-4xl mx-auto pt-16">
     <h1 class="text-5xl font-semibold text-center" style="font-family: 'Space Grotesk', sans-serif;">Hubungi Kami</h1>
     <p class="text-center text-slate-600 mt-4">Ada pertanyaan? Silakan hubungi tim kami.</p>
 
-    <div class="grid md:grid-cols-5 gap-10 mt-12">
+    <div class="grid md:grid-cols-5 gap-10 mt-12 items-start">
         <!-- Form -->
         <div class="md:col-span-3 bg-white rounded-3xl p-8 shadow-xl">
             <form onsubmit="handleSubmitForm(event)" class="space-y-6">
@@ -19,7 +19,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-2">Pesan</label>
-                    <textarea rows="6" required class="w-full px-6 py-4 rounded-3xl border border-slate-200 focus:border-emerald-400 outline-none"></textarea>
+                    <textarea rows="6" required class="resize-none w-full px-6 py-4 rounded-3xl border border-slate-200 focus:border-emerald-400 outline-none"></textarea>
                 </div>
                 <button type="submit" class="w-full py-5 bg-emerald-600 text-white font-semibold rounded-3xl">Kirim Pesan</button>
             </form>
@@ -28,21 +28,26 @@
         <!-- FAQ -->
         <div class="md:col-span-2 space-y-4">
             <h3 class="font-semibold text-xl mb-6">
-              ❓ Pertanyaan Umum
+                <!-- <i class="ri-questionnaire-line"></i> -->
+                Pertanyaan Umum
             </h3>
             
             <div onclick="toggleFAQ(this)" class="faq-item bg-white rounded-3xl px-6 py-5 cursor-pointer shadow-sm">
                 <div class="flex justify-between items-center">
                     <p class="font-medium">Apakah hasil deteksi akurat?</p>
-                    <span class="text-2xl">↓</span>
+                    <span class="text-2xl">
+                        <i class="ri-arrow-down-line"></i>
+                    </span>
                 </div>
-                <div class="faq-answer hidden mt-4 text-slate-600 text-sm">Ya. Model YOLOv8 kami telah dilatih dengan lebih dari 12.000 gambar daun padi Indonesia dan mencapai akurasi 96.8% di data test.</div>
+                <div class="faq-answer hidden mt-4 text-slate-600 text-sm">Ya. Model YOLOv8 kami telah dilatih dengan lebih dari <b>1.000</b> gambar daun jagung dan mencapai akurasi 96.8% di data test.</div>
             </div>
             
             <div onclick="toggleFAQ(this)" class="faq-item bg-white rounded-3xl px-6 py-5 cursor-pointer shadow-sm">
                 <div class="flex justify-between items-center">
                     <p class="font-medium">Apakah bisa digunakan di ponsel?</p>
-                    <span class="text-2xl">↓</span>
+                    <span class="text-2xl">
+                        <i class="ri-arrow-down-line"></i>
+                    </span>
                 </div>
                 <div class="faq-answer hidden mt-4 text-slate-600 text-sm">Tentu! Website ini sepenuhnya responsif dan bisa diakses dari ponsel Android/iOS tanpa aplikasi tambahan.</div>
             </div>
@@ -50,7 +55,9 @@
             <div onclick="toggleFAQ(this)" class="faq-item bg-white rounded-3xl px-6 py-5 cursor-pointer shadow-sm">
                 <div class="flex justify-between items-center">
                     <p class="font-medium">Berapa lama proses deteksi?</p>
-                    <span class="text-2xl">↓</span>
+                    <span class="text-2xl">
+                        <i class="ri-arrow-down-line"></i>
+                    </span>
                 </div>
                 <div class="faq-answer hidden mt-4 text-slate-600 text-sm">Biasanya hanya 1–3 detik tergantung kecepatan internet. Semua komputasi dilakukan di server kami.</div>
             </div>
@@ -58,9 +65,11 @@
             <div onclick="toggleFAQ(this)" class="faq-item bg-white rounded-3xl px-6 py-5 cursor-pointer shadow-sm">
                 <div class="flex justify-between items-center">
                     <p class="font-medium">Apakah ada biaya?</p>
-                    <span class="text-2xl">↓</span>
+                    <span class="text-2xl">
+                        <i class="ri-arrow-down-line"></i>
+                    </span>
                 </div>
-                <div class="faq-answer hidden mt-4 text-slate-600 text-sm">Untuk saat ini 100% gratis bagi petani dan peneliti. Versi premium akan menyediakan fitur riwayat deteksi tanpa batas.</div>
+                <div class="faq-answer hidden mt-4 text-slate-600 text-sm">Layanan kami 100% gratis bagi siapa saja tanpa terkecuali.</div>
             </div>
         </div>
     </div>
@@ -70,9 +79,17 @@
 function toggleFAQ(el) {
     el.querySelector('.faq-answer').classList.toggle('hidden');
 }
-function handleSubmitForm(e) {
+async function handleSubmitForm(e) {
     e.preventDefault();
-    alert('✅ Pesan berhasil dikirim! Kami akan balas secepatnya.');
+
+    await CLDD.alert({
+        title: 'Pesan Terkirim',
+        message: 'Pesan Anda berhasil dikirim. Kami akan segera menghubungi Anda.',
+        type: 'success',
+        okText: 'Oke',
+        showIcon: false
+    });
+
     e.target.reset();
 }
 </script>

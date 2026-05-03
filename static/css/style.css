@@ -1,24 +1,185 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
         
-        .nav-link {
-            position: relative;
-        }
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #10b981;
-        }
-        .nav-link:hover:after { width: 100%; }
-        
-        .upload-zone {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .upload-zone.dragover {
-            background-color: #ecfdf5;
-            border-color: #10b981;
-            transform: scale(1.02);
-        }
+.nav-link {
+    position: relative;
+}
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #10b981;
+}
+.nav-link:hover:after { width: 100%; }
+
+.upload-zone {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.upload-zone.dragover {
+    background-color: #ecfdf5;
+    border-color: #10b981;
+    transform: scale(1.02);
+}
+
+/* ── Base animation ───────────────────────── */
+.el-hidden {
+    opacity: 0;
+    transition: all 0.7s ease-out;
+}
+
+.el-show {
+    opacity: 1;
+}
+
+/* ── Fade ───────────────────────── */
+.el-fade-up {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: all 0.7s ease-out;
+}
+.el-fade-up.el-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.el-fade-down {
+    opacity: 0;
+    transform: translateY(-32px);
+    transition: all 0.7s ease-out;
+}
+.el-fade-down.el-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.el-fade-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: all 0.7s ease-out;
+}
+.el-fade-left.el-show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.el-fade-right {
+    opacity: 0;
+    transform: translateX(32px);
+    transition: all 0.7s ease-out;
+}
+.el-fade-right.el-show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ── Zoom ───────────────────────── */
+.el-zoom-in {
+    opacity: 0;
+    transform: scale(0.75);
+    transition: all 0.7s ease-out;
+}
+.el-zoom-in.el-show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.el-zoom-out {
+    opacity: 0;
+    transform: scale(1.25);
+    transition: all 0.7s ease-out;
+}
+.el-zoom-out.el-show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ── Rotate ─────────────────────── */
+.el-rotate-in {
+    opacity: 0;
+    transform: rotate(-6deg);
+    transition: all 0.7s ease-out;
+}
+.el-rotate-in.el-show {
+    opacity: 1;
+    transform: rotate(0);
+}
+
+/* ── 3D Rotate (optional) ───────── */
+.el-rotate-x {
+    opacity: 0;
+    transform: rotateX(-12deg);
+    transition: all 0.7s ease-out;
+}
+.el-rotate-x.el-show {
+    opacity: 1;
+    transform: rotateX(0);
+}
+
+.el-rotate-y {
+    opacity: 0;
+    transform: rotateY(-12deg);
+    transition: all 0.7s ease-out;
+}
+.el-rotate-y.el-show {
+    opacity: 1;
+    transform: rotateY(0);
+}
+
+/* ── Flip ───────────────────────── */
+.el-flip-x {
+    opacity: 0;
+    transform: rotateX(90deg);
+    transition: all 0.7s ease-out;
+}
+.el-flip-x.el-show {
+    opacity: 1;
+    transform: rotateX(0);
+}
+
+.el-flip-y {
+    opacity: 0;
+    transform: rotateY(90deg);
+    transition: all 0.7s ease-out;
+}
+.el-flip-y.el-show {
+    opacity: 1;
+    transform: rotateY(0);
+}
+
+/* ── Skew ───────────────────────── */
+.el-skew-x {
+    opacity: 0;
+    transform: skewX(6deg);
+    transition: all 0.7s ease-out;
+}
+.el-skew-x.el-show {
+    opacity: 1;
+    transform: skewX(0);
+}
+
+.el-skew-y {
+    opacity: 0;
+    transform: skewY(6deg);
+    transition: all 0.7s ease-out;
+}
+.el-skew-y.el-show {
+    opacity: 1;
+    transform: skewY(0);
+}
+
+/* ── Child delay (stagger effect) ─ */
+.child-rule-1:nth-child(2) { transition-delay: 0.2s; }
+.child-rule-1:nth-child(3) { transition-delay: 0.4s; }
+.child-rule-1:nth-child(4) { transition-delay: 0.6s; }
+.child-rule-1:nth-child(5) { transition-delay: 0.8s; }
+.child-rule-1:nth-child(6) { transition-delay: 1s; }
+.child-rule-1:nth-child(7) { transition-delay: 1.2s; }
+
+.child-rule-2:nth-child(2) { transition-delay: 0.2s; }
+.child-rule-2:nth-child(3) { transition-delay: 0.4s; }
+.child-rule-2:nth-child(4) { transition-delay: 0.6s; }
+.child-rule-2:nth-child(5) { transition-delay: 0.8s; }
+.child-rule-2:nth-child(6) { transition-delay: 1s; }
+.child-rule-2:nth-child(7) { transition-delay: 1.2s; }
